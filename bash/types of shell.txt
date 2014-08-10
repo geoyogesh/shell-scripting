@@ -1,0 +1,120 @@
+uname -a
+
+top
+================
+Diffferent shells
+-bash (bourne again shell)- Defualt
+-z shell 
+-tcsh
+-cs
+==================
+current shell
+switching between shells
+login shells
+virtual consoles
+=====================
+working on current shell
+---------------------------
+whoami
+
+ps - process shell
+- list the process(bash, ps)
+
+ping 8.8.8.8  > /temp/pingtemp &
+
+ps
+
+kill 7053 (kill the process)
+kill <PID>
+
+ps -p $$ (list only from the current shell process)
+
+echo $0 (name of the process that started the eacho command)
+
+========================================================
+
+switching between the shells
+----------------------------
+yum install zsh -y(do not ask for conformation)
+-intall the z shell
+
+which zsh
+/usr/bin/zsh (inside the search path)
+
+zsh (enter into z shell)
+ps -p $$
+echo $0
+
+exit (switch back to bash shell)
+
+echo $0
+
+==============================================================
+quick bit of linu process theory
+---------------------------------
+
+current shell forks and starts new child process which runs the new shell
+
+bash    -> fork()-system call ->bash(13268)- parent--enters wait state & copy of bash(13392)-child
+(13268)--exec()-system call-->zshell(13268)----> until exit()
+
+
+ps -ef | egrep 'bash|zsh' - more detials about bash and z shell process
+- shows the parent process id
+
+pstree
+sshd-shhd-bash--zsh--pstree
+
+tcsh
+csh
+
+ptree
+sshd-shhd-bash--zsh-tcsh-cs--pstree
+
+======================================================
+login shell
+-------------
+ 
+cat /etc/passwd | grep bluenet
+bluenet:x:1000:1000:yogesh dhanapal:/home/bluenet:/bin/bash
+
+ls -lh /bin/ | grep bash
+
+file /bin/bash
+hexdump -C /bin/bash
+
+change defualt login shell
+---------------------------
+
+more /etc/passwd
+
+/sbin/nologin (these users cant login)
+
+su - (switch user)- switch to root
+
+vim /etc/passwd
+
+cat /etc/passwd
+
+su npoulton
+-this account is currently not available
+
+exit
+echo $SHELL
+/bin/bash
+
+--------------------------------
+Virtual Consoles
+
+tty
+/dev/tty1
+
+who
+
+Alt+f2
+Alt+f3
+
+generally 7 independent vertiual consoles are availablr for use
+
+GUI Ctrl+Alt+f1
+
