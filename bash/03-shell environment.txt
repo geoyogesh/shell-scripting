@@ -1,0 +1,127 @@
+shell variables
+environment variables
+customizing the shell prompt
+customizing the shell environment
+
+------------------------------------
+
+age=36 [key value pairs]
+
+echo $BASH_VERSION
+echo $BASH_SHELL
+echo $SHELL
+
+echo $<variable name>
+
+------------------------------------
+set | more
+
+Variable name(A-Z,a-z,0-9,_)
+- don't start with number
+
+==========================================
+introduction to environment
+----------------------------
+
+#env
+
+PATH
+
+type env
+(env is hashed (/usr/bin/env))
+
+PS1 -  will define the shell prompt
+
+======================================
+
+shell variables or local variables
+----------------------------------
+
+declare and initialize a shell variable
+name=value(string)
+myname=yogesh
+
+echo $myname
+
+zsh
+pstree
+echo $myname
+(returns nothing)
+myname=yogesh1
+echo $myname
+yogesh1
+exit
+
+pstree
+echo $myname
+yogesh
+===============================================
+expanding variables
+$- expansion of variable name
+echo myname
+myname
+echo $myname
+yogesh
+
+echo '$myname'
+$myname
+note-- double qoutes sont work
+
+echo \$myname
+$myname
+
+===============================================
+
+exporting local variable as environment variable
+
+echo $myname
+export $myname
+zsh
+echo $myname
+
+note- parent and child have different copy of environment variable
+
+note-- while forking the child process environmnet variables are copied in to child process
+
+================================================
+alert_status=yellow
+echo alert_status
+
+env | grep alert
+
+export alert_status
+env | grep alert
+alert_status=yellow
+
+
+====================================================
+customizing the shell prompt
+----------------------------
+echo $PS1
+export PS1 = '\e[0;34m[\u@\h \w \d]$ \e[m'
+
+man bash
+/PROMPING
+
+permanent cutomization to shell environment
+--------------------------------------------
+
+more /etc/profile
+ls -l /etc /profile.d/
+
+/etc/profile -> /etc/profile.d/ -> ~/.bash_profile -> ~/.bashrc -> /etc/bashrc
+
+
+more ~/.bash_profiles
+more ~/.bashrc
+
+
+~ personal config
+. - hidden files
+
+note-	executes when we login more ~/.bash_profiles not when we fork the process
+ then add -i to act as a login shell
+
+
+
+
