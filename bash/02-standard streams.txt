@@ -1,0 +1,72 @@
+Standard Streams
+---------------------
+
+who am i (stream of charecters as input)
+- output stream of charecters
+
+-stdin-input-usually keyboard-file descripter 0
+-stdout-output-usually monitor- may be files-file descripter 1
+-stderr-error messages-file descripter 2
+
+echo 'output something'
+echo 'output something' > /temp/alertfile (using reditect operator)
+cat /temp/alertfile
+
+ls - lh /etc/ > /temp/lsout 
+note:- oweride if the file already exist
+
+set -o noclobber 
+
+echo 'output something' > /temp/alertfile
+cannot overite the existing file
+
+set +o noclobber (set the defualt)
+
+--------------------------------------------
+echo 'output something' >> /temp/alertfile (append with existing file)
+
+
+---------------------------------------
+
+device files and redirection
+
+- devices connected to our computer are shown as files
+
+tty
+/dev/pts/1
+
+file /dev/pts/*
+/dev/pts/1 charecter special (charecter files which receives stream on input)
+/dev/pts/2 charecter special
+
+ls -l /etc/ > /dev/pts/2 (redirecting the output from one session to another)
+
+
+-------------------
+0< input
+1> stdout
+2> std err
+
+ls -l 1> /tmp/file
+ls -l 2> /tmp/file
+
+------------------
+
+ls -l /home/bluenet /home/bluenet1
+
+ls -l /home/bluenet /home/bluenet1 2> /temp/stderr
+
+------------------
+
+ls -l /dev/std*
+
+/dev/stderr
+/dev/stdin
+/dev/stdout
+
+---------------------
+
+
+
+
+
