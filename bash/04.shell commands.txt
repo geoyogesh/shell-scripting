@@ -1,0 +1,135 @@
+interpreting commands
+executing commands
+command history
+piping
+Aliases
+backgrounding
+
+========================================
+interpreting commands
+
+simple command
+---------------
+only and only command
+
+<arg0><command> <whitespace><arg1>....<whitespace><argn> <return>
+
+<arg0>- command name
+
+mkdir /tmp/reallycooldir
+
+pwd - present working directory
+
+cp source destination
+
+option - special type of argument with leading -
+- which alters the behavior of the command
+
+ls
+
+ls -l (long listing)
+ls -l -h (humman readable)
+
+ls /etc/ -ahl 
+
+ls (gnu long version -  dont allow us to concat two option need to define seperately)
+
+======================================
+executing commands
+--------------------
+type vi
+type mkdir-hashed
+type cd-shell builtin-
+
+type set-shell builtin
+
+Shell builtin
+-------------
+runs faster than external program 
+can manipulate the shell environment
+can bloat the shell- this reason most commands are developed as external programs
+
+echo $PATH
+- never add a path to be beginning 
+
+command history
+---------------
+
+up arrow key
+ls -l
+
+cat ~/.bash_history
+
+env | grep HIST
+HISTSIZE=1000
+HISTCONTROL=ignoredups
+
+history
+rn ~/.bash_history
+entered into history file when we logout if session
+
+======================================================
+pipelining
+----------
+
+env | grep PATH
+-----------
+
+ls -l /etc
+
+ls -l /etc | more
+ls -l /etc | less
+
+press sace-- page
+press enter - line
+
+env |sort | more
+================================
+
+alias
+-----
+
+alias ls
+alias ls='ls --color=auto'
+ls /dev
+
+alias - list all the alias
+-i - interactive mode - ask for conformation
+
+unalias cp
+
+alias cp='cp -i'
+alias dontexe='rm * -rf'
+
+
+===================================
+
+background 
+----------
+
+jobs
+<retuned nothing>
+
+- forground job
+- background job
+
+ping 192.168.56.1
+
+ping 192.168.56.1 > /tmp/pingfile &
+[job number] [pid]
+1 4991
+sleep 300 & sleep &
+[2]  4992
+[3]  4994
+
+jobs
+
+fg
+ control + z - get the command line
+	
+gb
+
+
+------------------------------------
+
+
